@@ -14,6 +14,7 @@ import java.util.List;
 import optidata.aushakou.ventortechgifsaver.R;
 import optidata.aushakou.ventortechgifsaver.model.GifsDataModel;
 import optidata.aushakou.ventortechgifsaver.model.OriginalModel;
+import optidata.aushakou.ventortechgifsaver.ui.gifsfragment.HomeViewModel;
 
 public class GifViewHolder extends RecyclerView.ViewHolder {
     ImageView imageView;
@@ -26,17 +27,16 @@ public class GifViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void bind(List<GifsDataModel> gifsDataModels, int position) {
-        OriginalModel gifInfo = gifsDataModels.get(position).getImages().getOriginal();
-
-        cardView.setMinimumWidth(Integer.parseInt(gifInfo.width));
-        cardView.setMinimumHeight(Integer.parseInt(gifInfo.height));
-
-//        imageView.setMaxWidth();
-//        imageView.setMaxHeight(Integer.parseInt(gifInfo.height));
-
         Glide.with(itemView.getContext())
                 .asGif()
-                .load(gifInfo.getUrl())
+                .load(gifsDataModels.get(position).getImages().getOriginal().getUrl())
                 .into(imageView);
+    }
+
+    public void addToFavourite(){
+
+        HomeViewModel homeViewModel = new HomeViewModel();
+//        homeViewModel.addFavouriteGif();
+
     }
 }

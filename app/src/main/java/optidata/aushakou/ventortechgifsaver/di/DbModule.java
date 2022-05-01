@@ -13,6 +13,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext;
 import dagger.hilt.components.SingletonComponent;
 import optidata.aushakou.ventortechgifsaver.db.AppDatabase;
 import optidata.aushakou.ventortechgifsaver.db.dao.FavoriteGifsDao;
+import optidata.aushakou.ventortechgifsaver.db.repository.DbRepository;
 
 @Module
 @InstallIn(SingletonComponent.class)

@@ -11,6 +11,7 @@ import java.util.List;
 
 import optidata.aushakou.ventortechgifsaver.R;
 import optidata.aushakou.ventortechgifsaver.model.GifsDataModel;
+import optidata.aushakou.ventortechgifsaver.model.OriginalModel;
 
 public class GifsRecyclerViewAdapter extends RecyclerView.Adapter<GifViewHolder> {
 

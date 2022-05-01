@@ -1,13 +1,12 @@
 package optidata.aushakou.ventortechgifsaver.db.repository;
 
-import androidx.lifecycle.LiveData;
-
 import java.util.List;
 
 import javax.inject.Inject;
 
 import optidata.aushakou.ventortechgifsaver.db.dao.FavoriteGifsDao;
 import optidata.aushakou.ventortechgifsaver.db.entity.FavoriteGifsEntity;
+import optidata.aushakou.ventortechgifsaver.model.OriginalModel;
 
 public class DbRepository {
 
@@ -18,11 +17,11 @@ public class DbRepository {
         this.favoriteGifsDao = favoriteGifsDao;
     }
 
-    public void insertPokemon(FavoriteGifsEntity favoriteGifsEntity){
+    public void insertFavouriteGif(FavoriteGifsEntity favoriteGifsEntity){
         favoriteGifsDao.addFavouriteGif(favoriteGifsEntity);
     }
 
-    public LiveData<List<FavoriteGifsEntity>> getFavoritePokemon(){
+    public List<OriginalModel> getFavouriteGifs(){
         return favoriteGifsDao.getFavouriteGifs();
     }
 }

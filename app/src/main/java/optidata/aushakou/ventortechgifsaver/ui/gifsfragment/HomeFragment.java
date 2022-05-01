@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
 import androidx.appcompat.widget.Toolbar;
 
 import androidx.annotation.NonNull;
@@ -69,7 +70,7 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if (searchField.getText().toString().equals("")){
+                if (searchField.getText().toString().equals("")) {
                     homeViewModel.getGifsData();
                 } else {
                     homeViewModel.searchGif(searchField.getText().toString());
@@ -84,7 +85,7 @@ public class HomeFragment extends Fragment {
         favouriteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                homeViewModel.getFavouriteGifs();
             }
         });
     }
@@ -97,7 +98,12 @@ public class HomeFragment extends Fragment {
     }
 
     private void initViewModel() {
-        homeViewModel.getGifsListData().observe(getViewLifecycleOwner(), gifsListModels -> {
+        getGifsListObserver();
+        homeViewModel.getGifsData();
+    }
+
+    private void getGifsListObserver() {
+        homeViewModel.gifsList.observe(getViewLifecycleOwner(), gifsListModels -> {
             if (gifsListModels != null) {
                 gifsRecyclerViewAdapter.setGifsListModels(gifsListModels);
                 gifsRecyclerViewAdapter.notifyDataSetChanged();
@@ -105,6 +111,5 @@ public class HomeFragment extends Fragment {
                 Toast.makeText(getContext(), getString(R.string.error_message), Toast.LENGTH_LONG).show();
             }
         });
-        homeViewModel.getGifsData();
     }
 }

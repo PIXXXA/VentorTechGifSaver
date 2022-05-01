@@ -23,44 +23,6 @@ public class GiphyRepository {
         this.giphyService = giphyService;
     }
 
-//    public void getGifsData(MutableLiveData<List<GifsDataModel>> gifsListModel) {
-//        Call<GifObjectModel> call = giphyService.getGifsList(BuildConfig.API_KEY);
-//        call.enqueue(new Callback<GifObjectModel>() {
-//            @Override
-//            public void onResponse(Call<GifObjectModel> call, Response<GifObjectModel> response) {
-//                if (response.isSuccessful()){
-//                    gifsListModel.postValue(response.body().getType());
-//                } else {
-//                    gifsListModel.postValue(null);
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<GifObjectModel> call, Throwable t) {
-//                Log.d("ERROR_MESSAGE", t.getMessage());
-//            }
-//        });
-//    }
-
-//    public void searchTheGif(MutableLiveData<List<GifsDataModel>> gifsListModel, String searchField){
-//        Call<GifObjectModel> call = giphyService.searchTheGif(BuildConfig.API_KEY, searchField);
-//        call.enqueue(new Callback<GifObjectModel>() {
-//            @Override
-//            public void onResponse(Call<GifObjectModel> call, Response<GifObjectModel> response) {
-//                if (response.isSuccessful()){
-//                    gifsListModel.postValue(response.body().getType());
-//                } else {
-//                    gifsListModel.postValue(null);
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<GifObjectModel> call, Throwable t) {
-//                Log.d("ERROR_MESSAGE", t.getMessage());
-//            }
-//        });
-//    }
-
     public Observable<GifObjectModel> getGifsData(){
         return giphyService.getGifsList(BuildConfig.API_KEY);
     }

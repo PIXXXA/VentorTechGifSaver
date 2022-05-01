@@ -7,4 +7,5 @@
     <!-- Sizes -->
     <dimen name="gif_size">310dp</dimen>
     <dimen name="default_card_corner_radius">8dp</dimen>
+    <dimen name="toggle_button_size">24dp</dimen>
 </resources>

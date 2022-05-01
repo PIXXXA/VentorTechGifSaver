@@ -7,12 +7,6 @@ public class OriginalModel {
     @SerializedName("url")
     public String url;
 
-    @SerializedName("height")
-    public String height;
-
-    @SerializedName("width")
-    public String width;
-
     public String getUrl() {
         return url;
     }

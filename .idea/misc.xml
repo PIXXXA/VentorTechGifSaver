@@ -3,8 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/aushakou.OPTIDATA1/Desktop/ventorTechTest/app/src/main/res/drawable/favourite_toggle_selector.xml" value="0.17239583333333333" />
+        <entry key="..\:/Users/aushakou.OPTIDATA1/Desktop/ventorTechTest/app/src/main/res/drawable/ic_empty_favorite_24.xml" value="0.30885416666666665" />
+        <entry key="..\:/Users/aushakou.OPTIDATA1/Desktop/ventorTechTest/app/src/main/res/drawable/ic_filled_favorite_24.xml" value="0.17239583333333333" />
+        <entry key="..\:/Users/aushakou.OPTIDATA1/Desktop/ventorTechTest/app/src/main/res/drawable/ic_search_24.xml" value="0.30885416666666665" />
         <entry key="..\:/Users/aushakou.OPTIDATA1/Desktop/ventorTechTest/app/src/main/res/layout/activity_main.xml" value="0.29270833333333335" />
         <entry key="..\:/Users/aushakou.OPTIDATA1/Desktop/ventorTechTest/app/src/main/res/layout/favorite_gifs_fragment.xml" value="0.29270833333333335" />
+        <entry key="..\:/Users/aushakou.OPTIDATA1/Desktop/ventorTechTest/app/src/main/res/layout/favourite_toggle_selector.xml" value="0.15625" />
         <entry key="..\:/Users/aushakou.OPTIDATA1/Desktop/ventorTechTest/app/src/main/res/layout/gifs_list_fragment.xml" value="0.1" />
         <entry key="..\:/Users/aushakou.OPTIDATA1/Desktop/ventorTechTest/app/src/main/res/layout/main_toolbar.xml" value="0.29270833333333335" />
         <entry key="..\:/Users/aushakou.OPTIDATA1/Desktop/ventorTechTest/app/src/main/res/layout/recycler_view_element.xml" value="0.29270833333333335" />

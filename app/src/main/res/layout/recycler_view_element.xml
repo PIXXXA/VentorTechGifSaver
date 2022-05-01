@@ -8,13 +8,20 @@
         android:id="@+id/gif_card_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/default_margin"
         app:cardBackgroundColor="@color/black"
         app:cardCornerRadius="@dimen/default_card_corner_radius"
-        android:layout_margin="@dimen/default_margin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <ToggleButton
+            android:id="@+id/favourite_gif_button"
+            android:layout_width="@dimen/toggle_button_size"
+            android:layout_height="@dimen/toggle_button_size"
+            android:layout_gravity="end|top"
+            android:background="@drawable/favourite_toggle_selector" />
 
         <ImageView
             android:id="@+id/gif_image_view"
