@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import optidata.aushakou.ventortechgifsaver.R;
-import optidata.aushakou.ventortechgifsaver.model.gifsmodel.GifsDataModel;
+import optidata.aushakou.ventortechgifsaver.model.GifsDataModel;
 
 public class GifsRecyclerViewAdapter extends RecyclerView.Adapter<GifViewHolder> {
 

@@ -1,4 +1,4 @@
-package optidata.aushakou.ventortechgifsaver.model.gifsmodel;
+package optidata.aushakou.ventortechgifsaver.model;
 
 import com.google.gson.annotations.SerializedName;
 
