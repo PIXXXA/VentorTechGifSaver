@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">VentorTechGifSaver</string>
+    <string name="base_url">api.giphy.com/v1/gifs/trending</string>
+    <string name="gifs_description">Its a gif</string>
+    <string name="error_message">Something went wrong</string>
+    <string name="search_field">Search the gif</string>
 </resources>
