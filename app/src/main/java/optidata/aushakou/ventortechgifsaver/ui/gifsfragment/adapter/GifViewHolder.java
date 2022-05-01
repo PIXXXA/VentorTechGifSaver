@@ -12,8 +12,8 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 
 import optidata.aushakou.ventortechgifsaver.R;
-import optidata.aushakou.ventortechgifsaver.model.GifsDataModel;
-import optidata.aushakou.ventortechgifsaver.model.OriginalModel;
+import optidata.aushakou.ventortechgifsaver.model.gifsmodel.GifsDataModel;
+import optidata.aushakou.ventortechgifsaver.model.gifsmodel.OriginalModel;
 
 public class GifViewHolder extends RecyclerView.ViewHolder {
     ImageView imageView;

@@ -1,4 +1,4 @@
-package optidata.aushakou.ventortechgifsaver.di.module;
+package optidata.aushakou.ventortechgifsaver.di;
 
 import javax.inject.Singleton;
 

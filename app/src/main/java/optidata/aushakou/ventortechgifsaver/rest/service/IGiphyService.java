@@ -1,6 +1,6 @@
 package optidata.aushakou.ventortechgifsaver.rest.service;
 
-import optidata.aushakou.ventortechgifsaver.model.GifObjectModel;
+import optidata.aushakou.ventortechgifsaver.model.gifsmodel.GifObjectModel;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;

@@ -8,8 +8,8 @@ import java.util.List;
 import javax.inject.Inject;
 
 import dagger.hilt.android.lifecycle.HiltViewModel;
-import optidata.aushakou.ventortechgifsaver.model.GifsDataModel;
-import optidata.aushakou.ventortechgifsaver.rest.service.GiphyRepository;
+import optidata.aushakou.ventortechgifsaver.model.gifsmodel.GifsDataModel;
+import optidata.aushakou.ventortechgifsaver.rest.servicerepository.GiphyRepository;
 import optidata.aushakou.ventortechgifsaver.rest.service.IGiphyService;
 
 @HiltViewModel
