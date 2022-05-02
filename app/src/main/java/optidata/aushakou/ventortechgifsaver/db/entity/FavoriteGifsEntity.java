@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "favourite_table")
 public class FavoriteGifsEntity {
     @PrimaryKey(autoGenerate = true)
-    int id;
+    long id;
     String url;
 
     public FavoriteGifsEntity(int id, String url) {
@@ -17,11 +17,11 @@ public class FavoriteGifsEntity {
     public FavoriteGifsEntity() {
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

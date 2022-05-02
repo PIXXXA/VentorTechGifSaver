@@ -21,6 +21,10 @@ public class DbRepository {
         favoriteGifsDao.addFavouriteGif(favoriteGifsEntity);
     }
 
+    public void removeFromFavouriteGif(FavoriteGifsEntity favoriteGifsEntity){
+        favoriteGifsDao.removeFromFavouriteGif(favoriteGifsEntity);
+    }
+
     public List<OriginalModel> getFavouriteGifs(){
         return favoriteGifsDao.getFavouriteGifs();
     }

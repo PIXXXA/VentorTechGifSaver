@@ -14,4 +14,11 @@ public class OriginalModel {
     public void setUrl(String url) {
         this.url = url;
     }
+
+    public OriginalModel(String url) {
+        this.url = url;
+    }
+
+    public OriginalModel() {
+    }
 }

@@ -9,7 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/default_margin"
-        app:cardBackgroundColor="@color/black"
+        app:cardBackgroundColor="@color/gray"
         app:cardCornerRadius="@dimen/default_card_corner_radius"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,12 +21,15 @@
             android:layout_width="@dimen/toggle_button_size"
             android:layout_height="@dimen/toggle_button_size"
             android:layout_gravity="end|top"
-            android:background="@drawable/favourite_toggle_selector" />
+            android:background="@drawable/favourite_toggle_selector"
+            android:textOff=""
+            android:textOn="" />
 
         <ImageView
             android:id="@+id/gif_image_view"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/gif_size"
+            android:layout_margin="@dimen/default_margin"
             android:contentDescription="@string/gifs_description" />
     </androidx.cardview.widget.CardView>
 

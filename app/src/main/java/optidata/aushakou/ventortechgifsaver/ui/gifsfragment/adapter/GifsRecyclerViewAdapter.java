@@ -12,12 +12,15 @@ import java.util.List;
 import optidata.aushakou.ventortechgifsaver.R;
 import optidata.aushakou.ventortechgifsaver.model.GifsDataModel;
 import optidata.aushakou.ventortechgifsaver.model.OriginalModel;
+import optidata.aushakou.ventortechgifsaver.ui.gifsfragment.HomeViewModel;
 
 public class GifsRecyclerViewAdapter extends RecyclerView.Adapter<GifViewHolder> {
 
-    private List<GifsDataModel> gifsDataModels;
+    private List<OriginalModel> gifsDataModels;
+    private HomeViewModel homeViewModel;
 
-    public void setGifsListModels(List<GifsDataModel> gifsDataModels) {
+    public void setGifsListModels(List<OriginalModel> gifsDataModels, HomeViewModel homeViewModel) {
+        this.homeViewModel = homeViewModel;
         this.gifsDataModels = gifsDataModels;
     }
 
@@ -30,7 +33,7 @@ public class GifsRecyclerViewAdapter extends RecyclerView.Adapter<GifViewHolder>
 
     @Override
     public void onBindViewHolder(@NonNull GifViewHolder holder, int position) {
-        holder.bind(gifsDataModels, position);
+        holder.bind(gifsDataModels, position, homeViewModel);
     }
 
     @Override
