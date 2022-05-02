@@ -11,10 +11,6 @@ public class GifsDataModel {
         return images;
     }
 
-    public void setImages(ImagesModel images) {
-        this.images = images;
-    }
-
     public GifsDataModel(ImagesModel images) {
         this.images = images;
     }

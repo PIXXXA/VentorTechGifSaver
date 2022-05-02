@@ -10,8 +10,4 @@ public class ImagesModel {
     public OriginalModel getOriginal() {
         return original;
     }
-
-    public void setOriginal(OriginalModel original) {
-        this.original = original;
-    }
 }

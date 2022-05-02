@@ -1,7 +1,6 @@
 package optidata.aushakou.ventortechgifsaver.db.dao;
 
 import androidx.room.Dao;
-import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
@@ -19,6 +18,6 @@ public interface FavoriteGifsDao {
     @Insert
     void addFavouriteGif(FavoriteGifsEntity... favoriteGifsEntity);
 
-    @Delete
-    void removeFromFavouriteGif(FavoriteGifsEntity favoriteGifsEntity);
+    @Query("DELETE FROM favourite_table WHERE url = :url")
+    void removeFromFavouriteGif(String url);
 }

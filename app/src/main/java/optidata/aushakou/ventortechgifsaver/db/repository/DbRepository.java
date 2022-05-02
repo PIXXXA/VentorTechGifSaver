@@ -17,15 +17,15 @@ public class DbRepository {
         this.favoriteGifsDao = favoriteGifsDao;
     }
 
-    public void insertFavouriteGif(FavoriteGifsEntity favoriteGifsEntity){
+    public void insertFavouriteGif(FavoriteGifsEntity favoriteGifsEntity) {
         favoriteGifsDao.addFavouriteGif(favoriteGifsEntity);
     }
 
-    public void removeFromFavouriteGif(FavoriteGifsEntity favoriteGifsEntity){
-        favoriteGifsDao.removeFromFavouriteGif(favoriteGifsEntity);
+    public void removeFromFavouriteGif(String url) {
+        favoriteGifsDao.removeFromFavouriteGif(url);
     }
 
-    public List<OriginalModel> getFavouriteGifs(){
+    public List<OriginalModel> getFavouriteGifs() {
         return favoriteGifsDao.getFavouriteGifs();
     }
 }

@@ -11,10 +11,6 @@ public class OriginalModel {
         return url;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
     public OriginalModel(String url) {
         this.url = url;
     }

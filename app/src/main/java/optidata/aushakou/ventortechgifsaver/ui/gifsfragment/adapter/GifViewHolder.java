@@ -12,17 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 
 import java.util.List;
-import java.util.UUID;
-
-import javax.inject.Inject;
 
 import optidata.aushakou.ventortechgifsaver.R;
-import optidata.aushakou.ventortechgifsaver.db.dao.FavoriteGifsDao;
 import optidata.aushakou.ventortechgifsaver.db.entity.FavoriteGifsEntity;
-import optidata.aushakou.ventortechgifsaver.db.repository.DbRepository;
-import optidata.aushakou.ventortechgifsaver.model.GifsDataModel;
 import optidata.aushakou.ventortechgifsaver.model.OriginalModel;
-import optidata.aushakou.ventortechgifsaver.ui.gifsfragment.HomeFragment;
 import optidata.aushakou.ventortechgifsaver.ui.gifsfragment.HomeViewModel;
 
 public class GifViewHolder extends RecyclerView.ViewHolder {
@@ -54,13 +47,12 @@ public class GifViewHolder extends RecyclerView.ViewHolder {
         toggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (b){
+                if (b) {
                     homeViewModel.insertFavouriteGif(favoriteGifsEntity);
                 } else {
-                    homeViewModel.removeFromFavouriteGif(favoriteGifsEntity);
+                    homeViewModel.removeFromFavouriteGif(url);
                 }
             }
         });
-
     }
 }

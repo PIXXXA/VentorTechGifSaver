@@ -12,11 +12,10 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import androidx.appcompat.widget.Toolbar;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -27,13 +26,13 @@ import java.util.List;
 
 import dagger.hilt.android.AndroidEntryPoint;
 import optidata.aushakou.ventortechgifsaver.R;
-import optidata.aushakou.ventortechgifsaver.db.entity.FavoriteGifsEntity;
+import optidata.aushakou.ventortechgifsaver.model.GifsDataModel;
 import optidata.aushakou.ventortechgifsaver.model.OriginalModel;
 import optidata.aushakou.ventortechgifsaver.ui.gifsfragment.adapter.GifsRecyclerViewAdapter;
-import optidata.aushakou.ventortechgifsaver.ui.gifsfragment.adapter.IFavouriteGifsListener;
 
 @AndroidEntryPoint
 public class HomeFragment extends Fragment {
+
     private GifsRecyclerViewAdapter gifsRecyclerViewAdapter;
     public HomeViewModel homeViewModel;
 
@@ -41,7 +40,6 @@ public class HomeFragment extends Fragment {
     public EditText searchField;
     public ToggleButton favouriteButton;
     public RecyclerView recyclerView;
-    public ProgressBar homeProgressBar;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -63,7 +61,6 @@ public class HomeFragment extends Fragment {
         searchField = toolbar.findViewById(R.id.search_field);
         favouriteButton = toolbar.findViewById(R.id.favorite_button);
         recyclerView = view.findViewById(R.id.gifs_recycler_view);
-        homeProgressBar = view.findViewById(R.id.home_progress_bar);
     }
 
     private void setInitMethods() {
@@ -72,10 +69,46 @@ public class HomeFragment extends Fragment {
         initRecyclerView();
     }
 
+    private void initViewModel() {
+        homeViewModel.gifsList.observe(getViewLifecycleOwner(), gifsList -> {
+            if (gifsList != null) {
+                setRecyclerViewAdapter(separateGifsRequestModel(gifsList), homeViewModel);
+            } else {
+                Toast.makeText(getContext(), getString(R.string.error_message), Toast.LENGTH_LONG).show();
+            }
+        });
+
+        homeViewModel.favouriteGifsList.observe(getViewLifecycleOwner(), favouriteList -> {
+            setRecyclerViewAdapter(favouriteList, homeViewModel);
+        });
+
+        homeViewModel.getGifsData();
+    }
+
+    private List<OriginalModel> separateGifsRequestModel(List<GifsDataModel> gifsList) {
+        List<OriginalModel> originalModelList = new ArrayList<OriginalModel>();
+        for (int i = 0; i < gifsList.size(); i++) {
+            OriginalModel originalModel = new OriginalModel(gifsList.get(i).getImages().getOriginal().getUrl());
+            originalModelList.add(i, originalModel);
+        }
+        return originalModelList;
+    }
+
+    private void setRecyclerViewAdapter(List<OriginalModel> gifsDataModels, HomeViewModel homeViewModel) {
+        gifsRecyclerViewAdapter.setGifsListModels(gifsDataModels, homeViewModel);
+        gifsRecyclerViewAdapter.notifyDataSetChanged();
+    }
+
     private void initToolbar() {
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
         searchListener();
         favouriteListener();
+    }
+
+    private void initRecyclerView() {
+        gifsRecyclerViewAdapter = new GifsRecyclerViewAdapter();
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(gifsRecyclerViewAdapter);
     }
 
     private void searchListener() {
@@ -90,7 +123,7 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if (searchField.getText().toString().equals("")) {
+                if (searchField.getText().toString().equals(getString(R.string.empty_string))) {
                     homeViewModel.getGifsData();
                 } else {
                     homeViewModel.searchGif(searchField.getText().toString());
@@ -104,56 +137,11 @@ public class HomeFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b) {
-                    homeViewModel.getGifsData();
-                } else {
                     homeViewModel.getFavouriteGifs();
+                } else {
+                    homeViewModel.getGifsData();
                 }
             }
         });
-    }
-
-    private void initRecyclerView() {
-        gifsRecyclerViewAdapter = new GifsRecyclerViewAdapter();
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(gifsRecyclerViewAdapter);
-    }
-
-    private void initViewModel() {
-        homeViewModel.gifsList.observe(getViewLifecycleOwner(), gifsList -> {
-            if (gifsList != null) {
-                List<OriginalModel> originalModel = new ArrayList<OriginalModel>();
-                for (int i = 0; i < gifsList.size(); i++) {
-                    OriginalModel model = new OriginalModel(gifsList.get(i).getImages().getOriginal().getUrl());
-                    originalModel.add(i, model);
-                }
-                gifsRecyclerViewAdapter.setGifsListModels(originalModel, homeViewModel);
-                gifsRecyclerViewAdapter.notifyDataSetChanged();
-            } else {
-                Toast.makeText(getContext(), getString(R.string.error_message), Toast.LENGTH_LONG).show();
-            }
-        });
-
-        homeViewModel.favouriteGifsList.observe(getViewLifecycleOwner(), favouriteList -> {
-            gifsRecyclerViewAdapter.setGifsListModels(favouriteList, homeViewModel);
-            gifsRecyclerViewAdapter.notifyDataSetChanged();
-        });
-
-        homeViewModel.progressStatus.observe(getViewLifecycleOwner(), status -> {
-            if (status) {
-                homeProgressBar.setVisibility(View.VISIBLE);
-            } else {
-                homeProgressBar.setVisibility(View.GONE);
-            }
-        });
-
-        homeViewModel.favoriteGifsEntity.observe(getViewLifecycleOwner(), favouriteGif -> {
-            if (homeViewModel.favouriteGifStatus.getValue()) {
-                homeViewModel.insertFavouriteGif(favouriteGif);
-            } else {
-                homeViewModel.removeFromFavouriteGif(favouriteGif);
-            }
-        });
-
-        homeViewModel.getGifsData();
     }
 }

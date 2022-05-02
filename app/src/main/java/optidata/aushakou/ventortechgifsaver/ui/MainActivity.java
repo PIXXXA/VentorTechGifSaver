@@ -21,9 +21,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setFragment() {
-        HomeFragment details = new HomeFragment();
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.fragment_container, details);
-        ft.commit();
+        HomeFragment homeFragment = new HomeFragment();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, homeFragment);
+        fragmentTransaction.commit();
     }
 }

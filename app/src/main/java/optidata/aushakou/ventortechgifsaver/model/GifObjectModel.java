@@ -12,8 +12,4 @@ public class GifObjectModel {
     public List<GifsDataModel> getType() {
         return type;
     }
-
-    public void setType(List<GifsDataModel> type) {
-        this.type = type;
-    }
 }
